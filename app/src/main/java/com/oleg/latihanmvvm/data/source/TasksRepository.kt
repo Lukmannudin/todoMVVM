@@ -78,19 +78,19 @@ class TasksRepository(
         }
     }
 
-    override fun activeTask(task: Task) {
+    override fun activateTask(task: Task) {
         // Do in memory cache update to keep the app UI up to date
         cacheAndPerform(task){
             it.isCompleted = false
-            tasksLocalDataSource.activeTask(it)
-            tasksRemoteDataSource.activeTask(it)
+            tasksLocalDataSource.activateTask(it)
+            tasksRemoteDataSource.activateTask(it)
         }
     }
 
 
-    override fun activeTask(taskId: String) {
+    override fun activateTask(taskId: String) {
         getTaskWithId(taskId)?.let {
-            activeTask(it)
+            activateTask(it)
         }
     }
 

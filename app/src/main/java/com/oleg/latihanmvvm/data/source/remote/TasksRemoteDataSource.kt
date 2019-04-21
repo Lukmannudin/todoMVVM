@@ -70,12 +70,12 @@ object TasksRemoteDataSource : TasksDataSource {
         // converting from a {@code taskId} to a {@link task} using its cached data.
     }
 
-    override fun activeTask(task: Task) {
+    override fun activateTask(task: Task) {
         val activeTask = Task(task.title,task.description,task.id)
         TASKS_SERVICE_DATA.put(task.id,activeTask)
     }
 
-    override fun activeTask(taskId: String) {
+    override fun activateTask(taskId: String) {
         // Not required for the remote data source because the {@link TasksRepository} handles
         // converting from a {@code taskId} to a {@link task} using its cached data.
     }

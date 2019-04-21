@@ -57,11 +57,11 @@ class TasksLocalDataSource private constructor(
         // Converting from {@code taskId} to a {@link task} using its cached data.
     }
 
-    override fun activeTask(task: Task) {
+    override fun activateTask(task: Task) {
         appExecutors.diskIO.execute { tasksDao.updateCompleted(task.id,false)}
     }
 
-    override fun activeTask(taskId: String) {
+    override fun activateTask(taskId: String) {
         // Not required for the local data source because the {@link TasksRepository} handles
         // converting from a {@code taskId} to a {@link task} using its cached data.
     }
